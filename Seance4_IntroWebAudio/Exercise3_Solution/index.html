@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Exercise 3 - Load Sounds from Server Presets</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" type="module"></script>
+</head>
+
+<body>
+    <h1>Exercise 3 - Load Sound Samples from Server</h1>
+    <p>Select a preset from the dropdown menu.</p>
+    <p><strong>Note:</strong> This will try to connect to localhost:3000. If the server is not running, fallback presets will be used automatically.</p>
+    
+    <div>
+        <label for="presetSelect">Select Preset: </label>
+        <select id="presetSelect">
+            <option value="">Loading presets...</option>
+        </select>
+    </div>
+
+    <div id="buttonContainer">
+        <p>Select a preset to load sounds...</p>
+    </div>
+
+    <div class="wrapper">
+        <canvas id="myCanvas" width="800" height="200"></canvas>
+        <canvas id="myCanvasOverlay" width="800" height="200"></canvas>
+    </div>
+</body>
+</html>

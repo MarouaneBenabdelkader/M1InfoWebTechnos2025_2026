@@ -14,7 +14,7 @@ import { pixelToSeconds } from './utils.js';
 let ctx;
 
 const soundURL =
-    'https://mainline.i3s.unice.fr/WAMSampler2/audio/808/Maracas%20808.wav';
+    'https://mainline.i3s.unice.fr/mooc/shoot2.mp3';
 let decodedSound;
 
 let canvas, canvasOverlay;
@@ -27,15 +27,9 @@ let mousePos = { x: 0, y: 0 }
 let playButton = document.querySelector("#playButton");
 // disable the button until the sound is loaded and decoded
 playButton.disabled = true;
-let debugButton; 
 
 window.onload = async function init() {
     ctx = new AudioContext();
-
-     debugButton = document.querySelector("#debug");
-     debugButton.onclick = function(evt) {
-        waveformDrawer.drawWave(0, canvas.height);
-     };
 
     // two canvas : one for drawing the waveform, the other for the trim bars
     canvas = document.querySelector("#myCanvas");

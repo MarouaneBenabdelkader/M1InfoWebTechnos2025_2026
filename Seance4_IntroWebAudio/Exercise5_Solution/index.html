@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Exercise 5 - Advanced Sampler with Pads, Progress, and MIDI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" type="module"></script>
+</head>
+
+<body>
+    <h1>Exercise 5 - Professional Sampler (Inspired by Exercise 5 Examples)</h1>
+    
+    <div class="controls">
+        <h2>Controls</h2>
+        <button id="loadAllBtn">Load All Sounds</button>
+        
+        <div class="midi-section">
+            <label for="midiSelect">MIDI Device: </label>
+            <select id="midiSelect">
+                <option value="">No MIDI devices</option>
+            </select>
+            <span id="midiStatus">MIDI: Not connected</span>
+        </div>
+    </div>
+
+    <div class="info">
+        <p>Click "Load All" to download sounds with progress bars. Pads load from bottom-left to top-right.</p>
+        <p>Use keyboard or MIDI controller to trigger pads. Click pads with mouse too!</p>
+    </div>
+
+    <div id="padsContainer" class="pads-grid">
+        <!-- 4x4 grid of pads will be generated here -->
+    </div>
+
+    <div class="waveform-section">
+        <h3>Waveform View</h3>
+        <p id="currentSound">Select a pad to view waveform</p>
+        <div class="wrapper">
+            <canvas id="myCanvas" width="800" height="200"></canvas>
+            <canvas id="myCanvasOverlay" width="800" height="200"></canvas>
+        </div>
+    </div>
+</body>
+</html>
