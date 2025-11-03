@@ -1,11 +1,13 @@
 # Exercise 4 - Understanding WAM (Web Audio Modules)
 
 ## Overview
-Exercise 4 is about **studying Example4** to understand how Web Audio Modules (WAM) work. This is not about writing code, but about understanding the design pattern used.
+
+Exercise 4 is about **studying Example4** to understand how Web Audio Modules (WAM) work.
 
 ## What is a WAM?
 
 **WAM = Web Audio Module** - Think of it as "VST for the Web"
+
 - VST plugins are used in desktop audio software (like Ableton, FL Studio)
 - WAM plugins are used in web applications
 - Both provide reusable, self-contained audio processing units
@@ -22,6 +24,7 @@ Exercise 4 is about **studying Example4** to understand how Web Audio Modules (W
 ### Key Files:
 
 #### `index.html`
+
 - Loads the main.js (for simple sound playback)
 - Loads wamhost.js (for the WAM plugin)
 - Contains two containers:
@@ -29,6 +32,7 @@ Exercise 4 is about **studying Example4** to understand how Web Audio Modules (W
   - `wamsampler-container` - for the WAM plugin GUI
 
 #### `wamhost.js` - The Plugin Host
+
 This is the key file to understand. It does 4 things:
 
 ```javascript
@@ -76,27 +80,30 @@ WAM Plugin (Composite):
 ```
 
 #### Key Insight:
+
 - **From the outside**: The WAM plugin looks like a single AudioNode
 - **From the inside**: It's actually a complex graph of multiple nodes
 - **Benefit**: Users don't need to know the internal complexity
 
 This is like:
+
 - A car has an "accelerator pedal" (simple interface)
 - Behind it: engine, transmission, fuel injection, etc. (complex internals)
 
 ### What the Plugin Provides:
 
 1. **Audio Processing** (`instance.audioNode`)
+
    - Acts like any Web Audio AudioNode
    - Can be connected to the audio graph
    - Internally manages complex audio processing
-
 2. **User Interface** (`instance.createGui()`)
+
    - Returns a DOM element
    - Contains controls (sliders, buttons, dropdowns)
    - Separated from the audio processing logic
-
 3. **State Management**
+
    - Presets
    - Parameter values
    - MIDI mappings
@@ -104,16 +111,17 @@ This is like:
 ### Key Observations:
 
 1. **Separation of Concerns**
+
    - GUI is separate from audio engine
    - You can use the audio engine without the GUI (headless mode)
    - You can replace the GUI with your own
-
 2. **Interoperability**
+
    - WAM plugins follow a standard
    - Any WAM host can load any WAM plugin
    - Like VST plugins in desktop audio software
-
 3. **Web Standards**
+
    - Uses ES6 modules (`import/export`)
    - Uses Web Audio API
    - Uses Web Components for GUI
@@ -123,14 +131,15 @@ This is like:
 Create your own sampler inspired by this, with:
 
 1. **SamplerEngine class** (the audio processing)
+
    - Should work without a GUI
    - Should be testable independently
-
 2. **SamplerGUI class** (the user interface)
+
    - Should communicate with the engine
    - Should be optional
-
 3. **Integration**
+
    - Waveform visualizer
    - Trim bars
    - Server-side preset loading
@@ -138,68 +147,17 @@ Create your own sampler inspired by this, with:
 ## Questions to Think About:
 
 1. **Why separate GUI from Engine?**
+
    - Testability (test audio without GUI)
    - Reusability (different GUIs for same engine)
    - Performance (run engine in Web Worker)
-
 2. **Why use the Composite pattern?**
+
    - Simplicity for users
    - Encapsulation of complexity
    - Standardized interface
-
 3. **How does this relate to Object-Oriented Programming?**
+
    - Encapsulation (hide internal complexity)
    - Abstraction (simple interface)
    - Composition (building complex objects from simple ones)
-
-## Next Steps:
-
-1. **Play with Example4**
-   - Try different presets
-   - Use keyboard to trigger sounds
-   - Adjust effects
-   - Notice how smooth the integration is
-
-2. **Study the WAM Sampler code** (optional, advanced)
-   - Visit: https://mainline.i3s.unice.fr/WamSampler/
-   - Look at the source code structure
-   - See how GUI and Engine are separated
-
-3. **Move to Exercise 5**
-   - Study the examples with progress bars
-   - Study the 4x4 pad matrix example
-   - Study the MIDI control example
-   - **This is what you'll implement for your assignment!**
-
-## Design Pattern Summary:
-
-**Pattern Name**: Composite / Façade
-
-**Intent**: 
-- Present a simple interface to a complex subsystem
-- Allow treating individual objects and compositions uniformly
-
-**Structure**:
-```
-Client Code
-    ↓
-[Simple Interface: WAM AudioNode]
-    ↓
-[Complex Internal Graph]
-    ├── BufferSource 1
-    ├── BufferSource 2
-    ├── GainNode
-    ├── FilterNode
-    ├── DelayNode
-    └── → destination
-```
-
-**Benefits**:
-- Users don't need to understand the complexity
-- Internal implementation can change without affecting users
-- Promotes loose coupling
-
-This is the same pattern used in many places:
-- jQuery (simple API for complex DOM manipulation)
-- React Components (complex internal state, simple props interface)
-- Operating Systems (simple file API, complex filesystem internals)
