@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Assignment - Professional Web Audio Sampler</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Professional Web Audio Sampler</h1>
+        <p class="subtitle">Assignment: Exercise 3 + Exercise 5 Merger</p>
+    </header>
+    
+    <div class="container">
+        <!-- Controls Section -->
+        <section class="controls-section">
+            <h2>Preset Selection</h2>
+            <div class="preset-controls">
+                <label for="presetSelect">Choose a Preset: </label>
+                <select id="presetSelect">
+                    <option value="">-- Select a Preset --</option>
+                </select>
+                <button id="loadPresetBtn" disabled>Load Preset</button>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="info-section">
+            <h3>Instructions</h3>
+            <ul>
+                <li>Select a preset and click "Load Preset" to download sounds</li>
+                <li>Click pads or use keyboard shortcuts to play sounds</li>
+                <li>Click a pad to view its waveform below</li>
+                <li>Drag the white trim bars to adjust playback range</li>
+            </ul>
+            <div class="keyboard-layout">
+                <strong>Keyboard Layout:</strong>
+                <div class="key-rows">
+                    <div class="key-row">1 2 3 4</div>
+                    <div class="key-row">Q W E R</div>
+                    <div class="key-row">Z X C V</div>
+                    <div class="key-row">A S D F</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pads Grid -->
+        <section class="pads-section">
+            <h2>Sample Pads</h2>
+            <div id="padsContainer" class="pads-grid">
+                <!-- 4x4 grid of pads will be generated here -->
+            </div>
+        </section>
+
+        <!-- Waveform Visualization -->
+        <section class="waveform-section">
+            <h2>Waveform Editor</h2>
+            <p id="currentSound" class="current-sound-label">Select a pad to view and edit its waveform</p>
+            <div class="canvas-wrapper">
+                <canvas id="myCanvas" width="800" height="200"></canvas>
+                <canvas id="myCanvasOverlay" width="800" height="200"></canvas>
+            </div>
+            <div class="trim-info">
+                <span id="trimStartInfo">Start: 0.00s</span>
+                <span id="trimEndInfo">End: 0.00s</span>
+                <span id="trimDurationInfo">Duration: 0.00s</span>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Web Audio Technos - Assignment | Built with Web Audio API</p>
+    </footer>
+</body>
+</html>

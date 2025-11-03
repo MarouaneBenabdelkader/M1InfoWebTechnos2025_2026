@@ -1,0 +1,316 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Sections */
+section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+/* Controls Section */
+.preset-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.preset-controls label {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+#presetSelect {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+#loadPresetBtn {
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#loadPresetBtn:hover:not(:disabled) {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+#loadPresetBtn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Info Section */
+.info-section ul {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.info-section li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.info-section li::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+}
+
+.keyboard-layout {
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.key-rows {
+    margin-top: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2em;
+}
+
+.key-row {
+    margin: 5px 0;
+    letter-spacing: 10px;
+}
+
+/* Pads Section */
+.pads-section {
+    text-align: center;
+}
+
+.pads-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pad {
+    aspect-ratio: 1;
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    border: 3px solid #555;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.pad.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pad.loaded {
+    border-color: #4CAF50;
+    background: linear-gradient(145deg, #2d5a2d, #1d4a1d);
+}
+
+.pad.active {
+    transform: scale(0.95);
+    box-shadow: inset 0 0 20px rgba(76, 175, 80, 0.6);
+}
+
+.pad.selected {
+    border-color: #FFC107;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+}
+
+.pad:hover:not(.disabled) {
+    transform: scale(1.05);
+    border-color: #76ff03;
+}
+
+.pad-number {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.pad-key {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    margin: 10px 0;
+}
+
+.pad-status {
+    font-size: 0.8em;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: #4CAF50;
+    transition: width 0.1s linear;
+}
+
+/* Waveform Section */
+.waveform-section {
+    text-align: center;
+}
+
+.current-sound-label {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    display: block;
+    color: #FFC107;
+    font-weight: 600;
+}
+
+.canvas-wrapper {
+    position: relative;
+    width: 800px;
+    height: 200px;
+    margin: 20px auto;
+    background: rgba(0,0,0,0.4);
+    border-radius: 8px;
+    border: 2px solid rgba(255,255,255,0.2);
+    overflow: hidden;
+}
+
+#myCanvas, #myCanvasOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#myCanvas {
+    z-index: 1;
+}
+
+#myCanvasOverlay {
+    z-index: 2;
+    cursor: pointer;
+}
+
+.trim-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 6px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trim-info span {
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .canvas-wrapper {
+        width: 100%;
+        max-width: 600px;
+    }
+    
+    #myCanvas, #myCanvasOverlay {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .pads-grid {
+        gap: 10px;
+        max-width: 400px;
+    }
+    
+    .pad-key {
+        font-size: 1.2em;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+}
