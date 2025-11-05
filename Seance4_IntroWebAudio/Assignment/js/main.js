@@ -104,12 +104,60 @@ async function fetchPresets() {
 
 /**
  * Use fallback presets when server is not available
+ * Each preset has 16 samples to fill all pads (as per Exercise 1 requirements)
  */
 function useFallbackPresets() {
     presets = [
         {
-            name: "Drum Kit 1",
+            name: "Basic 9 Sounds ONLY",
+            description: "Original 9 sounds from Exercise 1 - pads 10-16 will be empty",
             samples: [
+                // Only 9 sounds - remaining pads will be disabled
+                { name: "Kick", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
+                { name: "Snare", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
+                { name: "Hi-Hat Closed", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
+                { name: "Hi-Hat Open", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/07/Hi-Hat_Abierto.ogg/Hi-Hat_Abierto.ogg.mp3" },
+                { name: "Tom High", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3c/Tom_Agudo.ogg/Tom_Agudo.ogg.mp3" },
+                { name: "Tom Mid", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a4/Tom_Medio.ogg/Tom_Medio.ogg.mp3" },
+                { name: "Tom Low", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/8d/Tom_Grave.ogg/Tom_Grave.ogg.mp3" },
+                { name: "Crash", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/68/Crash.ogg/Crash.ogg.mp3" },
+                { name: "Ride", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/24/Ride.ogg/Ride.ogg.mp3" }
+            ]
+        },
+        {
+            name: "Complete Drum Kit",
+            description: "Full 16-pad drum kit with all essential sounds",
+            samples: [
+                // Pad 1-4 (Top row: Keys 1,2,3,4)
+                { name: "Kick", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
+                { name: "Snare", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
+                { name: "Hi-Hat Closed", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
+                { name: "Hi-Hat Open", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/07/Hi-Hat_Abierto.ogg/Hi-Hat_Abierto.ogg.mp3" },
+                
+                // Pad 5-8 (Second row: Keys Q,W,E,R)
+                { name: "Tom High", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3c/Tom_Agudo.ogg/Tom_Agudo.ogg.mp3" },
+                { name: "Tom Mid", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a4/Tom_Medio.ogg/Tom_Medio.ogg.mp3" },
+                { name: "Tom Low", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/8d/Tom_Grave.ogg/Tom_Grave.ogg.mp3" },
+                { name: "Crash", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/68/Crash.ogg/Crash.ogg.mp3" },
+                
+                // Pad 9-12 (Third row: Keys Z,X,C,V)
+                { name: "Ride", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/24/Ride.ogg/Ride.ogg.mp3" },
+                { name: "Kick 2", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
+                { name: "Snare 2", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
+                { name: "Hi-Hat 2", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
+                
+                // Pad 13-16 (Bottom row: Keys A,S,D,F)
+                { name: "Tom High 2", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3c/Tom_Agudo.ogg/Tom_Agudo.ogg.mp3" },
+                { name: "Tom Mid 2", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a4/Tom_Medio.ogg/Tom_Medio.ogg.mp3" },
+                { name: "Crash 2", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/68/Crash.ogg/Crash.ogg.mp3" },
+                { name: "Shoot", url: "https://mainline.i3s.unice.fr/mooc/shoot2.mp3" }
+            ]
+        },
+        {
+            name: "Basic 9 Sounds (Exercise 1)",
+            description: "Original 9 sounds from Exercise 1, repeated to fill 16 pads",
+            samples: [
+                // Original 9 sounds from Exercise 1
                 { name: "Kick", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
                 { name: "Snare", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
                 { name: "Hi-Hat Closed", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
@@ -119,15 +167,39 @@ function useFallbackPresets() {
                 { name: "Tom Low", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/8d/Tom_Grave.ogg/Tom_Grave.ogg.mp3" },
                 { name: "Crash", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/68/Crash.ogg/Crash.ogg.mp3" },
                 { name: "Ride", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/24/Ride.ogg/Ride.ogg.mp3" },
-                { name: "Shoot", url: "https://mainline.i3s.unice.fr/mooc/shoot2.mp3" }
+                
+                // Repeat some to fill remaining 7 pads
+                { name: "Kick Var", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
+                { name: "Snare Var", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
+                { name: "HH Closed Var", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
+                { name: "Tom High Var", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3c/Tom_Agudo.ogg/Tom_Agudo.ogg.mp3" },
+                { name: "Tom Mid Var", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a4/Tom_Medio.ogg/Tom_Medio.ogg.mp3" },
+                { name: "Tom Low Var", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/8d/Tom_Grave.ogg/Tom_Grave.ogg.mp3" },
+                { name: "Ride Var", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/24/Ride.ogg/Ride.ogg.mp3" }
             ]
         },
         {
-            name: "Drum Kit 2",
+            name: "Minimal Kit (4 Sounds)",
+            description: "Simple 4-sound kit, repeated across pads",
             samples: [
-                { name: "Ride", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/24/Ride.ogg/Ride.ogg.mp3" },
-                { name: "Kick", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
-                { name: "Hi-Hat", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
+                { name: "Kick 1", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
+                { name: "Snare 1", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
+                { name: "Hi-Hat 1", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
+                { name: "Crash 1", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/68/Crash.ogg/Crash.ogg.mp3" },
+                
+                { name: "Kick 2", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
+                { name: "Snare 2", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
+                { name: "Hi-Hat 2", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
+                { name: "Crash 2", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/68/Crash.ogg/Crash.ogg.mp3" },
+                
+                { name: "Kick 3", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
+                { name: "Snare 3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
+                { name: "Hi-Hat 3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
+                { name: "Crash 3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/68/Crash.ogg/Crash.ogg.mp3" },
+                
+                { name: "Kick 4", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
+                { name: "Snare 4", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
+                { name: "Hi-Hat 4", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
                 { name: "Shoot", url: "https://mainline.i3s.unice.fr/mooc/shoot2.mp3" }
             ]
         }
@@ -193,7 +265,9 @@ async function loadPreset(presetIndex) {
     
     // Load each sample
     const samples = preset.samples;
-    for (let i = 0; i < Math.min(samples.length, 16); i++) {
+    const sampleCount = Math.min(samples.length, 16);
+    
+    for (let i = 0; i < sampleCount; i++) {
         const sample = samples[i];
         
         try {
@@ -214,6 +288,11 @@ async function loadPreset(presetIndex) {
             console.error(`Failed to load sample ${i}:`, error);
             samplerGUI.markPadEmpty(i);
         }
+    }
+    
+    // Mark remaining pads as empty (if preset has less than 16 samples)
+    for (let i = sampleCount; i < 16; i++) {
+        samplerGUI.markPadEmpty(i);
     }
     
     // Re-enable button

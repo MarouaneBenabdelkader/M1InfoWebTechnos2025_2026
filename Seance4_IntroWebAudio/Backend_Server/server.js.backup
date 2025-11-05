@@ -44,26 +44,9 @@ const presets = [
         ]
     },
     {
-        id: "drums-basic-9",
-        name: "Basic 9 Sounds ONLY (Exercise 1)",
-        description: "Original 9 sounds from Exercise 1 - pads 10-16 are empty",
-        samples: [
-            // Only the original 9 sounds - pads 10-16 will be disabled
-            { name: "Kick", path: "sounds/kick.wav", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
-            { name: "Snare", path: "sounds/snare.mp3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
-            { name: "Hi-Hat Closed", path: "sounds/hihat-closed.mp3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
-            { name: "Hi-Hat Open", path: "sounds/hihat-open.mp3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/07/Hi-Hat_Abierto.ogg/Hi-Hat_Abierto.ogg.mp3" },
-            { name: "Tom High", path: "sounds/tom-high.mp3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3c/Tom_Agudo.ogg/Tom_Agudo.ogg.mp3" },
-            { name: "Tom Mid", path: "sounds/tom-mid.mp3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a4/Tom_Medio.ogg/Tom_Medio.ogg.mp3" },
-            { name: "Tom Low", path: "sounds/tom-low.mp3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/8d/Tom_Grave.ogg/Tom_Grave.ogg.mp3" },
-            { name: "Crash", path: "sounds/crash.mp3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/68/Crash.ogg/Crash.ogg.mp3" },
-            { name: "Ride", path: "sounds/ride.mp3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/24/Ride.ogg/Ride.ogg.mp3" }
-        ]
-    },
-    {
         id: "drums-basic",
-        name: "Basic Drums (16 Pads)",
-        description: "Original 9 sounds from Exercise 1, repeated to fill all 16 pads",
+        name: "Basic Drums (9 Sounds - Exercise 1)",
+        description: "Original 9 sounds from Exercise 1, repeated to fill 16 pads",
         samples: [
             // Original 9 sounds
             { name: "Kick", path: "sounds/kick.wav", url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav" },
@@ -130,6 +113,103 @@ const presets = [
             { name: "Snare 4", path: "sounds/snare4.mp3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3" },
             { name: "Hi-Hat 4", path: "sounds/hihat4.mp3", url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3" },
             { name: "Shoot", path: "sounds/shoot.mp3", url: "https://mainline.i3s.unice.fr/mooc/shoot2.mp3" }
+        ]
+    }
+            },
+            { 
+                name: "Tom Mid", 
+                path: "sounds/tom-mid.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a4/Tom_Medio.ogg/Tom_Medio.ogg.mp3"
+            },
+            { 
+                name: "Tom Low", 
+                path: "sounds/tom-low.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/8d/Tom_Grave.ogg/Tom_Grave.ogg.mp3"
+            },
+            { 
+                name: "Crash", 
+                path: "sounds/crash.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/68/Crash.ogg/Crash.ogg.mp3"
+            },
+            { 
+                name: "Ride", 
+                path: "sounds/ride.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/24/Ride.ogg/Ride.ogg.mp3"
+            }
+        ]
+    },
+    {
+        id: "percussion",
+        name: "Percussion Kit",
+        description: "Various percussion sounds",
+        samples: [
+            { 
+                name: "Kick", 
+                path: "sounds/kick2.wav",
+                url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav"
+            },
+            { 
+                name: "Snare", 
+                path: "sounds/snare2.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3"
+            },
+            { 
+                name: "Shoot", 
+                path: "sounds/shoot.mp3",
+                url: "https://mainline.i3s.unice.fr/mooc/shoot2.mp3"
+            }
+        ]
+    },
+    {
+        id: "complete-kit",
+        name: "Complete Kit",
+        description: "All available drum sounds",
+        samples: [
+            { 
+                name: "Kick", 
+                path: "sounds/kick.wav",
+                url: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Hardstyle_kick.wav"
+            },
+            { 
+                name: "Snare", 
+                path: "sounds/snare.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Redoblante_de_marcha.ogg/Redoblante_de_marcha.ogg.mp3"
+            },
+            { 
+                name: "Hi-Hat Closed", 
+                path: "sounds/hihat-closed.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Hi-Hat_Cerrado.ogg/Hi-Hat_Cerrado.ogg.mp3"
+            },
+            { 
+                name: "Hi-Hat Open", 
+                path: "sounds/hihat-open.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/07/Hi-Hat_Abierto.ogg/Hi-Hat_Abierto.ogg.mp3"
+            },
+            { 
+                name: "Tom High", 
+                path: "sounds/tom-high.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3c/Tom_Agudo.ogg/Tom_Agudo.ogg.mp3"
+            },
+            { 
+                name: "Tom Mid", 
+                path: "sounds/tom-mid.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a4/Tom_Medio.ogg/Tom_Medio.ogg.mp3"
+            },
+            { 
+                name: "Tom Low", 
+                path: "sounds/tom-low.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/8d/Tom_Grave.ogg/Tom_Grave.ogg.mp3"
+            },
+            { 
+                name: "Crash", 
+                path: "sounds/crash.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/68/Crash.ogg/Crash.ogg.mp3"
+            },
+            { 
+                name: "Ride", 
+                path: "sounds/ride.mp3",
+                url: "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/24/Ride.ogg/Ride.ogg.mp3"
+            }
         ]
     }
 ];
